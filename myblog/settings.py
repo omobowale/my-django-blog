@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-$#wn!&&1tm3a@^yzemz0^_cn1&c-!07ic23%!5)0d-$qz29(1*
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['myblog.onrender.com']
+ALLOWED_HOSTS = ['my-django-blog-0i2d.onrender.com']
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
