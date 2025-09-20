@@ -1,0 +1,42 @@
+{% extends 'base_layout.html' %}
+
+{% block page_title %}
+  Post list
+{% endblock %}
+
+{% block pre_heading %}
+  <div class="new-post-container">
+    <div class="new-post-button">
+      <span><i class="fa-solid fa-plus"></i></span>
+      <a href="{% url 'new_post' %}">Create new post</a>
+    </div>
+  </div>
+{% endblock %}
+
+{% block page_heading %}
+  <div>
+    <p class="Heading-title">My posts</p>
+    <p class="Heading-description">A collection of all the articles, updates, and content I’ve shared.</p>
+  </div>
+{% endblock %}
+
+{% block content %}
+  {% for post in allPosts %}
+    <div class="post">
+      <span class="title">{{ post.title }}</span>
+      <p class="content">{{ post.content }}</p>
+      <hr />
+      <div class="icons">
+        <a href="{% url 'single_post' post.id %}"><i class="fa-solid fa-eye" style="color:green"></i></a>
+        <a href="{% url 'edit_post' post.id %}"><i class="fa-solid fa-pen-to-square" style="color:blue"></i></a>
+
+        <form method="POST" action="{% url 'delete_post' post.id %}">
+          {% csrf_token %}
+          <button type="submit"><i class="fa-solid fa-trash" style="color:red"></i></button>
+        </form>
+      </div>
+    </div>
+  {% empty %}
+    <p>No record found</p>
+  {% endfor %}
+{% endblock %}

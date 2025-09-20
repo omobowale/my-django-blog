@@ -1,0 +1,68 @@
+{% extends 'base_layout.html' %}
+
+{% block page_title %}
+    Register
+{% endblock %}
+
+{% block page_heading %}
+    Register
+{% endblock %}
+
+{% block content %}
+  <form method="POST">
+    {% csrf_token %}
+
+    <div class="form-input">
+      <label>Username</label>
+      <input name="username" type="text" value="{{ form.username.value|default:'' }}" placeholder="Please enter username" />
+      {% for error in form.username.errors %}
+        <p class="errorlist">{{ error }}</p>
+      {% endfor %}
+    </div>
+    <div class="form-input">
+      <label>First Name</label>
+      <input name="first_name" type="text" value="{{ form.first_name.value|default:'' }}" placeholder="Please enter first name" />
+      {% for error in form.first_name.errors %}
+        <p class="errorlist">{{ error }}</p>
+      {% endfor %}
+    </div>
+    <div class="form-input">
+      <label>Last Name</label>
+      <input name="last_name" type="text" value="{{ form.last_name.value|default:'' }}" placeholder="Please enter last name" />
+      {% for error in form.last_name.errors %}
+        <p class="errorlist">{{ error }}</p>
+      {% endfor %}
+    </div>
+
+    <div class="form-input">
+      <label>Email</label>
+      <input name="email" type="text" value="{{ form.email.value|default:'' }}" placeholder="Please enter username" />
+      {% for error in form.email.errors %}
+        <p class="errorlist">{{ error }}</p>
+      {% endfor %}
+    </div>
+
+    <div class="form-input">
+      <label>Password</label>
+      <input name="password1" type="password" value="{{ form.password1.value|default:'' }}" placeholder="Please enter password" />
+      {% for error in form.password1.errors %}
+        <p class="errorlist">{{ error }}</p>
+      {% endfor %}
+    </div>
+
+    <div class="form-input">
+      <label>Confirm Password</label>
+      <input name="password2" type="password" value="{{ form.password2.value|default:'' }}" placeholder="Please enter password" />
+      {% for error in form.password2.errors %}
+        <p class="errorlist">{{ error }}</p>
+      {% endfor %}
+    </div>
+
+    <div class="create-post-container">
+      <div class="create-post-button">
+        <i class="fa-solid fa-paper-plane"></i>
+        <button type="submit">Submit</button>
+      </div>
+    </div>
+  </form>
+{% endblock %}

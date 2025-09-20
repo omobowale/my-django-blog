@@ -1,0 +1,42 @@
+{% extends 'base_layout.html' %}
+
+{% block page_title %}
+  Edit Post
+{% endblock %}
+
+
+{% block page_heading %}
+  Edit Post
+{% endblock %}
+
+
+{% block content %}
+  <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <div class="form-input">
+      <label>Title</label>
+      <input value="{{ post.title }}" name="title" placeholder="Please enter post title" />
+    </div>
+    <div class="form-input">
+      <label>Content</label>
+      <textarea name="content" rows="10" placeholder="Please enter your content here">{{ post.content }}</textarea>
+    </div>
+
+    <div class="form-input">
+      <label>Upload</label>
+      <input value="{{ post.image }}" name="image" type="file" />
+    </div>
+
+    <div class="create-post-container">
+      <div class="back-post-button">
+        <i class="fa-solid fa-arrow-left"></i>
+        <a href="{% url 'posts_list' %}">Back</a>
+      </div>
+      <div class="create-post-button">
+        <i class="fa-solid fa-paper-plane"></i>
+        <button type="submit">Update</button>
+      </div>
+    </div>
+  </form>
+{% endblock %}

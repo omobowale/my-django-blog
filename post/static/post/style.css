@@ -1,0 +1,177 @@
+body {
+    font-family: Inter;
+    background-color: gray;
+    font-size: 14px;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    padding: 30px;
+}
+
+.pre-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1em;
+}
+
+.pre-heading .greetings {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.Heading {
+    background-color: black;
+    color: white;
+    padding: 2em;
+
+}
+
+.Heading-title {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.post {
+    padding: 2em;
+    margin: 2em 0;
+    cursor: pointer;
+    background-color: white;
+}
+
+.post .title {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.post:hover {
+    background-color: black;
+    color: white
+}
+
+.icons {
+    margin-top: 1em;
+    display: flex;
+    gap: 0.5em;
+
+}
+
+.new-post-container {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.new-post-button {
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    padding: 1em;
+    margin-bottom: 1em;
+
+}
+
+.new-post-button a,
+.create-post-button a,
+.back-post-button a {
+    color: white;
+    text-decoration: none;
+}
+
+.form-input {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 2em 0;
+}
+
+.form-input input,
+textarea {
+    outline: none;
+    border: 0;
+    background-color: white;
+    padding: 1em;
+    border-radius: 0.2em;
+    margin-top: 0.4em;
+    font-family: Inter;
+}
+
+.create-post-container {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 1em;
+}
+
+.create-post-button {
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    padding: 1em;
+    margin-bottom: 1em;
+}
+
+.back-post-button {
+    background-color: white;
+    color: black;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    padding: 1em;
+    margin-bottom: 1em;
+
+}
+
+.back-post-button a {
+    color: black;
+}
+
+
+.single-post-container {
+    display: flex;
+    align-items: start;
+    gap: 2em;
+}
+
+.single-post-container img {
+    height: 50vh;
+    width: 30vw;
+    object-fit: cover
+}
+
+.single-post-container .title {
+    font-size: 30px;
+}
+
+.content-container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.content-icons {
+    display: flex;
+
+}
+
+
+.errorlist {
+    font-size: 12px;
+    font-weight: 400;
+    color: pink;
+    margin-top: -0.009em;
+    margin: 0;
+    padding: 0;
+}
+
+.errorlist li {
+    list-style-type: none;
+}

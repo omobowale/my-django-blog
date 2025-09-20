@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load static %}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="{% static 'post/style.css' %}" />
+    <title>
+      {% block page_title %}
+
+      {% endblock %}
+    </title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="pre-heading">
+        <div class="">
+          <p class="greetings">Welcome, {{ request.user.username }}</p>
+          <form action="{% url 'logout' %}" method="post">
+            {% csrf_token %}
+            <p><button type="submit">Logout</button></p>
+          </form>
+        </div>
+        {% block pre_heading %}
+
+        {% endblock %}
+      </div>
+      <div class="Heading">
+        {% block page_heading %}
+
+        {% endblock %}
+      </div>
+      {% block content %}
+
+      {% endblock %}
+    </div>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+{% extends 'base_layout.html' %}
+
+{% block page_title %}
+    Login
+{% endblock %}
+
+{% block page_heading %}
+    Login
+{% endblock %}
+
+{% block content %}
+  <form method="POST">
+    {% csrf_token %}
+
+    <div class="form-input">
+      <label>Username</label>
+      <input name="username" type="text" value="{{ form.username.value|default:'' }}" placeholder="Please enter username" />
+      {% for error in form.username.errors %}
+        <p class="errorlist">{{ error }}</p>
+      {% endfor %}
+    </div>
+
+    <div class="form-input">
+      <label>Password</label>
+      <input name="password" type="password" value="{{ form.password.value|default:'' }}" placeholder="Please enter password" />
+      {% for error in form.password.errors %}
+        <p class="errorlist">{{ error }}</p>
+      {% endfor %}
+    </div>
+
+    <div class="create-post-container">
+      <div class="create-post-button">
+        <i class="fa-solid fa-paper-plane"></i>
+        <button type="submit">Submit</button>
+      </div>
+    </div>
+  </form>
+{% endblock %}

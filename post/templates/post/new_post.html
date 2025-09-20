@@ -1,0 +1,49 @@
+{% extends 'base_layout.html' %}
+
+{% block page_title %}
+  New Post
+{% endblock %}
+
+{% block page_heading %}
+  Create New Post
+{% endblock %}
+
+{% block content %}
+
+<form method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+
+  <div class="form-input">
+    <label>Title</label>
+    <input name="title" value="{{ form.title.value|default:'' }}" placeholder="Please enter post title" />
+    {% for error in form.title.errors %}
+      <p class="errorlist">{{ error }}</p>
+    {% endfor %}
+  </div>
+
+  <div class="form-input">
+    <label>Content</label>
+    <textarea name="content" rows="10" placeholder="Please enter your content here">{{ form.content.value|default:'' }}</textarea>
+    {% for error in form.content.errors %}
+      <p class="errorlist">{{ error }}</p>
+    {% endfor %}
+  </div>
+
+  <div class="form-input">
+    <label>Upload</label>
+    <input name="image" type="file" />
+  </div>
+
+  <div class="create-post-container">
+    <div class="back-post-button">
+      <i class="fa-solid fa-arrow-left"></i>
+      <a href="{% url 'posts_list' %}">Back</a>
+    </div>
+    <div class="create-post-button">
+      <i class="fa-solid fa-paper-plane"></i>
+      <button type="submit">Submit</button>
+    </div>
+  </div>
+</form>
+
+{% endblock %}
